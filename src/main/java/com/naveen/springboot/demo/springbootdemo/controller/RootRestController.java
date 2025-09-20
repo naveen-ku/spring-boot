@@ -1,4 +1,4 @@
-package com.naveen.springboot.demo.springbootdemo.controllers;
+package com.naveen.springboot.demo.springbootdemo.controller;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;

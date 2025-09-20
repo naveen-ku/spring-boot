@@ -1,6 +1,6 @@
-package com.naveen.springboot.demo.springbootdemo.controllers;
+package com.naveen.springboot.demo.springbootdemo.controller;
 
-import com.naveen.springboot.demo.springbootdemo.Coach;
+import com.naveen.springboot.demo.springbootdemo.common.Coach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

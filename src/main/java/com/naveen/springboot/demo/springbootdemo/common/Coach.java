@@ -1,4 +1,4 @@
-package com.naveen.springboot.demo.springbootdemo;
+package com.naveen.springboot.demo.springbootdemo.common;
 
 public interface Coach {
 
