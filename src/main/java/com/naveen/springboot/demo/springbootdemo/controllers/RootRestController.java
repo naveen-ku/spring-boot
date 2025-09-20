@@ -1,7 +1,6 @@
-package com.naveen.springboot.demo.springbootdemo.rest;
+package com.naveen.springboot.demo.springbootdemo.controllers;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
