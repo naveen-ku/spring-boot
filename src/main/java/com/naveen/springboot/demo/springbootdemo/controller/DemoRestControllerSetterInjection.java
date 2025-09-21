@@ -12,7 +12,7 @@ public class DemoRestControllerSetterInjection {
     private Coach myCoach;
 
     @Autowired
-    public void setCoach(@Qualifier("tennisCoach") Coach theCoach){
+    public void setCoach(Coach theCoach){
         myCoach = theCoach;
     }
 
