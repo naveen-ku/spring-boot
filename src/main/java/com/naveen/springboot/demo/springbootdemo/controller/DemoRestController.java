@@ -11,7 +11,7 @@ public class DemoRestController {
     private Coach myCoach;
 
     @Autowired
-    public DemoRestController(@Qualifier("cricketCoach") Coach theCoach){
+    public DemoRestController(@Qualifier("tennisCoach") Coach theCoach){
         myCoach = theCoach;
     }
 
