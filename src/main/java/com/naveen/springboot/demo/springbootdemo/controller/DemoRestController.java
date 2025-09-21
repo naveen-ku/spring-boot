@@ -9,15 +9,22 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class DemoRestController {
     private Coach myCoach;
+    private Coach swimCoach;
 
     @Autowired
-    public DemoRestController(@Qualifier("tennisCoach") Coach theCoach){
+    public DemoRestController(@Qualifier("tennisCoach") Coach theCoach, @Qualifier("swimCoach") Coach sCoach){
         myCoach = theCoach;
+        swimCoach = sCoach;
     }
 
     @GetMapping("/dailyworkout")
     public String getDailyWorkout(){
         return myCoach.getDailyWorkout();
+    }
+
+    @GetMapping("/swim")
+    public String getSwimWorkout(){
+        return swimCoach.getDailyWorkout();
     }
 
 
