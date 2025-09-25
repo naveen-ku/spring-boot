@@ -19,3 +19,22 @@ Instead of adding @Lazy annotation we can also define global property related to
 ```properties
 spring.main.lazy-initialization=true
 ```
+
+## Install MySQL & MySQL Workbench
+```shell
+  brew install mysql
+```
+```shell
+  brew install --cask mysqlworkbench
+```
+
+
+### Setup to connect MySQL DB
+
+1. Start the server
+    ```shell
+    brew services start mysql
+    ```
+2. Open workbench
+3. Connect to MySQL Connections
+4. Open the `01-create-user.sql` script in workbench and execute the command. It will create a user 'spring' with password 'spring'
