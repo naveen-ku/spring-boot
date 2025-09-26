@@ -19,10 +19,14 @@ public class SpringbootdemoApplication {
     @Bean
     public CommandLineRunner commandLineRunner(StudentDAO studentDAO){
         return runner ->{
-//            createStudent(studentDAO);
-//            createMultipleStudent(studentDAO);
+            createStudent(studentDAO);
+            createMultipleStudent(studentDAO);
 //            readStudent(studentDAO);
-            queryForStudents(studentDAO);
+//            queryForStudents(studentDAO);
+//            queryForStudentsByLastName(studentDAO);
+//            updateStudent(studentDAO);
+//            deleteStudent(studentDAO);
+//            deleteAllStudent(studentDAO);
         };
     }
 
@@ -73,6 +77,40 @@ public class SpringbootdemoApplication {
         for(Student tempStudent: students){
             System.out.println(tempStudent);
         }
+    }
+
+    private void queryForStudentsByLastName(StudentDAO studentDAO){
+        List<Student> students = studentDAO.findByLastName("Gupta");
+
+        for(Student tempStudent: students){
+            System.out.println(tempStudent);
+        }
+    }
+
+    private void updateStudent(StudentDAO studentDAO){
+        int sId = 1;
+        System.out.println("Getting the student with id: " + sId);
+        Student student = studentDAO.findById(sId);
+        System.out.println("Updating student..." + student);
+
+        if(student != null){
+            student.setFirstName("Naveen");
+            studentDAO.update(student);
+            System.out.println("Updated student: " + student);
+        }
+    }
+
+    private void deleteStudent(StudentDAO studentDAO){
+        int studentId = 1;
+        System.out.println("Deleting student with id: " + studentId);
+        studentDAO.delete(studentId);
+    }
+
+    private void deleteAllStudent(StudentDAO studentDAO){
+        System.out.println("Deleting all student...");
+        int numRowsDeleted = studentDAO.deleteAll();
+        System.out.println("Deleted rows..." + numRowsDeleted);
+
     }
 
 }
