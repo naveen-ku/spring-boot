@@ -11,11 +11,14 @@ public class DemoRestControllerSetterInjection {
 
     private Coach myCoach;
 
+    //  Dependency injection using setters method
     @Autowired
     public void setCoach(Coach theCoach){
         myCoach = theCoach;
     }
 
+    // Since CricketCoach is set as primary - CricketCoach will be injected
+    // Observe there is no constructor here, so injection happens using setter injection
     @GetMapping("/setter-dailyworkout")
     public String route(){
         return "Setter: " + myCoach.getDailyWorkout();
