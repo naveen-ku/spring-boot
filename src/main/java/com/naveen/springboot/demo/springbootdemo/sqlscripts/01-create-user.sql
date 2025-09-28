@@ -1,5 +1,5 @@
 -- Drop user first if they exist
-DROP USER if exists 'springstudent'@'%' ;
+DROP USER if exists 'spring'@'%' ;
 
 -- Now create user with prop privileges
 CREATE USER 'spring'@'%' IDENTIFIED BY 'spring';
