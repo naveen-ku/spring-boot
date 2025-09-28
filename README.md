@@ -38,3 +38,11 @@ spring.main.lazy-initialization=true
 2. Open workbench
 3. Connect to MySQL Connections
 4. Open the `01-create-user.sql` script in workbench and execute the command. It will create a user 'spring' with password 'spring'
+
+
+
+### Package Sequence
+1. springbootdemo - Core concepts, Annotations, Basics, DB connection
+2. restcrud - Rest APIs, Exception Handling
+3. restdbcrud - Rest APIs, DB Connection, Security Config
+4. restjpadatacrud - Same as 3 + Use Spring Data JPA to reduce boiler code of DAO layer 
