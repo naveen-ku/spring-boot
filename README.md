@@ -39,7 +39,9 @@ spring.main.lazy-initialization=true
 3. Connect to MySQL Connections
 4. Open the `01-create-user.sql` script in workbench and execute the command. It will create a user 'spring' with password 'spring'
 
-
+### Docs
+- Swagger UI - `http://localhost:7070/v1/swagger-ui/index.html`
+- 
 
 ### Package Sequence
 1. springbootdemo - Core concepts, Annotations, Basics, DB connection
