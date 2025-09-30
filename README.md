@@ -41,7 +41,7 @@ spring.main.lazy-initialization=true
 
 ### Docs
 - Swagger UI - `http://localhost:7070/v1/swagger-ui/index.html`
-- 
+- Documentation will be available at the following url for json format: `http://localhost:7070/v1/v3/api-docs`
 
 ### Package Sequence
 1. springbootdemo - Core concepts, Annotations, Basics, DB connection
