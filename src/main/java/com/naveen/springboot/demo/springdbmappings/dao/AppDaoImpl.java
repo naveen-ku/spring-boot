@@ -1,6 +1,7 @@
 package com.naveen.springboot.demo.springdbmappings.dao;
 
 import com.naveen.springboot.demo.springdbmappings.entity.Instructor;
+import com.naveen.springboot.demo.springdbmappings.entity.InstructorDetail;
 import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -33,6 +34,22 @@ public class AppDaoImpl implements AppDao {
         Instructor instructor = mEntityManager.find(Instructor.class, id);
         if (instructor != null) {
             mEntityManager.remove(instructor);
+        }
+    }
+
+    @Override
+    public InstructorDetail findInstructorDetailById(int id) {
+        InstructorDetail instructorDetail = mEntityManager.find(InstructorDetail.class, id);
+        return instructorDetail;
+    }
+
+    @Override
+    @Transactional
+//    When
+    public void deleteInstructorDetailById(int id) {
+        InstructorDetail instructorDetail = mEntityManager.find(InstructorDetail.class, id);
+        if (instructorDetail != null) {
+            mEntityManager.remove(instructorDetail);
         }
     }
 }

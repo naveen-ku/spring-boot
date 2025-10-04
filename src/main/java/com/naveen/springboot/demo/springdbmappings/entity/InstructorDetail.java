@@ -17,6 +17,12 @@ public class InstructorDetail {
     @Column(name = "hobby")
     private String hobby;
 
+    // Refers to "instructorDetail" property in "Instructor" class
+    // When cascade is CascadeType.ALL, if instructor_detail table any row is deleted
+    // then it's associated instructor will be deleted as well
+    @OneToOne(mappedBy = "instructorDetail", cascade = CascadeType.ALL)
+    private Instructor instructor;
+
     public InstructorDetail() {
     }
 
@@ -47,6 +53,14 @@ public class InstructorDetail {
 
     public void setHobby(String hobby) {
         this.hobby = hobby;
+    }
+
+    public Instructor getInstructor() {
+        return instructor;
+    }
+
+    public void setInstructor(Instructor instructor) {
+        this.instructor = instructor;
     }
 
     @Override
