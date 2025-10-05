@@ -1,4 +1,4 @@
-package com.naveen.springboot.demo.springdbmappings.entity;
+package com.naveen.springboot.demo.springddonetomany.entity;
 
 import jakarta.persistence.*;
 
@@ -18,9 +18,6 @@ public class InstructorDetail {
     private String hobby;
 
     // Refers to "instructorDetail" property in "Instructor" class
-    // mapped by tells hibernate look at the "instructorDetail" property in "Instructor" class
-    // So hibernate actually use the information from Instructor class @JoinColumn to figure out
-    // how to find the associated instructor
     // When cascade is CascadeType.ALL, if instructor_detail table any row is deleted
     // then it's associated instructor will be deleted as well
     @OneToOne(mappedBy = "instructorDetail", cascade = CascadeType.ALL)
