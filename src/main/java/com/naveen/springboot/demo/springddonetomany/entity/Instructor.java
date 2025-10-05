@@ -35,7 +35,7 @@ public class Instructor {
             CascadeType.MERGE,
             CascadeType.PERSIST,
             CascadeType.REFRESH
-    })
+    }, fetch = FetchType.EAGER)
     List<Course> courses;
 
     public Instructor() {

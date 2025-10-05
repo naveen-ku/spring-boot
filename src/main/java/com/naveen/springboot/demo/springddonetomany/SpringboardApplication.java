@@ -25,8 +25,21 @@ public class SpringboardApplication {
 //            deleteInstructorById(appDao);
 //            findInstructorDetailsById(appDao);
 //            deleteInstructorDetailsById(appDao);
-            createInstructorWithCourses(appDao);
+//            createInstructorWithCourses(appDao);
+            findInstructorWithCourses(appDao);
         };
+    }
+
+    private void findInstructorWithCourses(AppDao appDao) {
+        System.out.println("---------------------------------------------");
+        int id = 1;
+        System.out.println("Find findInstructorWithCourses by id... " + id);
+        Instructor instructor = appDao.findInstructorById(id);
+        System.out.println("instructor by id... " + instructor.toString());
+        System.out.println("instructor details... " + instructor.getInstructorDetail());
+        System.out.println("instructor courses by... " + instructor.getCourses());
+
+        System.out.println("---------------------------------------------");
     }
 
     private void createInstructorWithCourses(AppDao appDao) {
