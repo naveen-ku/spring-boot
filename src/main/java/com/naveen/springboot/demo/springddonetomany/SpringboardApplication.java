@@ -28,8 +28,21 @@ public class SpringboardApplication {
 //            findInstructorDetailsById(appDao);
 //            deleteInstructorDetailsById(appDao);
 //            createInstructorWithCourses(appDao);
-            findInstructorWithCourses(appDao);
+//            findInstructorWithCourses(appDao);
+            findInstructorWithCoursesJoinFetch(appDao);
         };
+    }
+
+    private void findInstructorWithCoursesJoinFetch(AppDao appDao) {
+        System.out.println("---------------------------------------------");
+        int id = 1;
+        System.out.println("Find findInstructorWithCoursesJoinFetch by id... " + id);
+        Instructor instructor = appDao.findInstructorByIdJoinFetchCourses(id);
+        System.out.println("instructor by id... " + instructor.toString());
+        System.out.println("instructor details... " + instructor.getInstructorDetail());
+        System.out.println("instructor courses by... " + instructor.getCourses());
+
+        System.out.println("---------------------------------------------");
     }
 
     private void findInstructorWithCourses(AppDao appDao) {
