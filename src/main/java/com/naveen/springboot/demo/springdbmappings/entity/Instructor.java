@@ -21,8 +21,11 @@ public class Instructor {
     @Column(name = "email")
     private String email;
 
+    //    Use @JoinColumn to define the column that holds the foreign key reference.
+    //    This can be used in both unidirectional and bidirectional relationships,
+    //    and it's generally placed on the owning side of the relationship.
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="instructor_detail_id")
+    @JoinColumn(name = "instructor_detail_id")
     private InstructorDetail instructorDetail;
 
     public Instructor() {
