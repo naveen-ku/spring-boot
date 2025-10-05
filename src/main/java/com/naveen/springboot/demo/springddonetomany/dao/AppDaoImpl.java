@@ -1,11 +1,15 @@
 package com.naveen.springboot.demo.springddonetomany.dao;
 
+import com.naveen.springboot.demo.springddonetomany.entity.Course;
 import com.naveen.springboot.demo.springddonetomany.entity.Instructor;
 import com.naveen.springboot.demo.springddonetomany.entity.InstructorDetail;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Repository
 public class AppDaoImpl implements AppDao {
@@ -51,5 +55,14 @@ public class AppDaoImpl implements AppDao {
         if (instructorDetail != null) {
             mEntityManager.remove(instructorDetail);
         }
+    }
+
+    @Override
+    public List<Course> findCoursesByInstructorId(int id) {
+        TypedQuery<Course> query = mEntityManager.createQuery("from Course where instructor.id=:data", Course.class);
+        query.setParameter("data", id);
+
+        List<Course> courses = query.getResultList();
+        return courses;
     }
 }

@@ -10,6 +10,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.List;
+
 @SpringBootApplication
 public class SpringboardApplication {
     static void main(String[] args) {
@@ -35,6 +37,8 @@ public class SpringboardApplication {
         int id = 1;
         System.out.println("Find findInstructorWithCourses by id... " + id);
         Instructor instructor = appDao.findInstructorById(id);
+        List<Course> courses = appDao.findCoursesByInstructorId(id);
+        instructor.setCourses(courses);
         System.out.println("instructor by id... " + instructor.toString());
         System.out.println("instructor details... " + instructor.getInstructorDetail());
         System.out.println("instructor courses by... " + instructor.getCourses());
