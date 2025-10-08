@@ -24,13 +24,72 @@ public class SpringboardApplication {
             System.out.println("DB One to Many command line runner");
 //            saveInstructor(appDao);
 //            findInstructorById(appDao);
-//            deleteInstructorById(appDao);
 //            findInstructorDetailsById(appDao);
-//            deleteInstructorDetailsById(appDao);
 //            createInstructorWithCourses(appDao);
 //            findInstructorWithCourses(appDao);
-            findInstructorWithCoursesJoinFetch(appDao);
+//            findInstructorWithCoursesJoinFetch(appDao);
+//            updateInstructor(appDao);
+//            findCourseById(appDao);
+//            updateCourseById(appDao);
+//            deleteInstructorById(appDao);
+//            deleteCourseById(appDao);
+//            addCourseToExistingInstructor(appDao);
+            deleteInstructorDetailsById(appDao);
+
+
         };
+    }
+
+    private void addCourseToExistingInstructor(AppDao appDao){
+        System.out.println("---------------------------------------------");
+        int id = 2;
+        System.out.println("Find addCourseToExistingInstructor by id... " + id);
+        appDao.addCourseToExistingInstructor(id);
+        System.out.println("---------------------------------------------");
+    }
+
+    private void deleteCourseById(AppDao appDao) {
+        System.out.println("---------------------------------------------");
+        int id = 10;
+        System.out.println("deleteCourseById by id... " + id);
+        appDao.deleteCourseById(id);
+        System.out.println("---------------------------------------------");
+    }
+
+    private void updateCourseById(AppDao appDao) {
+        System.out.println("---------------------------------------------");
+        int id = 10;
+        System.out.println("Find updateCourseById by id... " + id);
+        Course course = appDao.findCourseById(id);
+        if(course == null){
+            System.out.println("Course not present");
+            return;
+        }
+        System.out.println("Course by id... " + course.toString());
+        course.setTitle("Course 1 - Spring boot");
+        appDao.updateCourse(course);
+        System.out.println("---------------------------------------------");
+    }
+
+    private void findCourseById(AppDao appDao) {
+        System.out.println("---------------------------------------------");
+        int id = 10;
+        System.out.println("Find findCourseById by id... " + id);
+        Course course = appDao.findCourseById(id);
+        System.out.println("Course is ... " + course.toString());
+        System.out.println("---------------------------------------------");
+    }
+
+    private void updateInstructor(AppDao appDao) {
+        System.out.println("---------------------------------------------");
+        int id = 1;
+        System.out.println("Find updateInstructor by id... " + id);
+        Instructor instructor = appDao.findInstructorById(id);
+        System.out.println("instructor by id... " + instructor.toString());
+        instructor.setFirstName("One to many first name");
+        appDao.updateInstructor(instructor);
+
+        System.out.println("---------------------------------------------");
     }
 
     private void findInstructorWithCoursesJoinFetch(AppDao appDao) {
@@ -83,7 +142,7 @@ public class SpringboardApplication {
     }
 
     private void deleteInstructorDetailsById(AppDao appDao) {
-        int id = 1;
+        int id = 2;
         System.out.println("---------------------------------------------");
         System.out.println("Delete instructorDetails byId... " + id);
         appDao.deleteInstructorDetailById(id);
@@ -103,7 +162,7 @@ public class SpringboardApplication {
     }
 
     private void deleteInstructorById(AppDao appDao) {
-        int id = 2;
+        int id = 1;
         System.out.println("---------------------------------------------");
         System.out.println("Delete instructor... " + id);
         appDao.deleteInstructorById(id);
