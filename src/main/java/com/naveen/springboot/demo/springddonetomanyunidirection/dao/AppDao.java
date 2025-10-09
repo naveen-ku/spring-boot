@@ -1,9 +1,9 @@
-package com.naveen.springboot.demo.springddonetomany.dao;
+package com.naveen.springboot.demo.springddonetomanyunidirection.dao;
 
 
-import com.naveen.springboot.demo.springddonetomany.entity.Course;
-import com.naveen.springboot.demo.springddonetomany.entity.Instructor;
-import com.naveen.springboot.demo.springddonetomany.entity.InstructorDetail;
+import com.naveen.springboot.demo.springddonetomanyunidirection.entity.Course;
+import com.naveen.springboot.demo.springddonetomanyunidirection.entity.Instructor;
+import com.naveen.springboot.demo.springddonetomanyunidirection.entity.InstructorDetail;
 
 import java.util.List;
 

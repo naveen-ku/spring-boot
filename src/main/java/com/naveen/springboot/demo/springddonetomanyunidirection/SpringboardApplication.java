@@ -1,10 +1,9 @@
-package com.naveen.springboot.demo.springddonetomany;
+package com.naveen.springboot.demo.springddonetomanyunidirection;
 
-
-import com.naveen.springboot.demo.springddonetomany.dao.AppDao;
-import com.naveen.springboot.demo.springddonetomany.entity.Course;
-import com.naveen.springboot.demo.springddonetomany.entity.Instructor;
-import com.naveen.springboot.demo.springddonetomany.entity.InstructorDetail;
+import com.naveen.springboot.demo.springddonetomanyunidirection.dao.AppDao;
+import com.naveen.springboot.demo.springddonetomanyunidirection.entity.Course;
+import com.naveen.springboot.demo.springddonetomanyunidirection.entity.Instructor;
+import com.naveen.springboot.demo.springddonetomanyunidirection.entity.InstructorDetail;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -34,7 +33,7 @@ public class SpringboardApplication {
 //            deleteInstructorById(appDao);
 //            deleteCourseById(appDao);
 //            addCourseToExistingInstructor(appDao);
-            deleteInstructorDetailsById(appDao);
+//            deleteInstructorDetailsById(appDao);
 
 
         };

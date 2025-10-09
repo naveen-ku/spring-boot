@@ -1,4 +1,4 @@
-package com.naveen.springboot.demo.springddonetomany.config;
+package com.naveen.springboot.demo.springddonetomanyunidirection.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;

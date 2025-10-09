@@ -1,4 +1,4 @@
-package com.naveen.springboot.demo.springddonetomany.controller;
+package com.naveen.springboot.demo.springddonetomanyunidirection.controller;
 
 
 import org.springframework.web.bind.annotation.GetMapping;

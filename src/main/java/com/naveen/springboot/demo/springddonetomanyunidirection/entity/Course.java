@@ -1,4 +1,4 @@
-package com.naveen.springboot.demo.springddonetomany.entity;
+package com.naveen.springboot.demo.springddonetomanyunidirection.entity;
 
 import jakarta.persistence.*;
 
