@@ -4,6 +4,7 @@ import com.naveen.springboot.demo.springddonetomanyunidirection.dao.AppDao;
 import com.naveen.springboot.demo.springddonetomanyunidirection.entity.Course;
 import com.naveen.springboot.demo.springddonetomanyunidirection.entity.Instructor;
 import com.naveen.springboot.demo.springddonetomanyunidirection.entity.InstructorDetail;
+import com.naveen.springboot.demo.springddonetomanyunidirection.entity.Review;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -21,6 +22,8 @@ public class SpringboardApplication {
     public CommandLineRunner commandLineRunner(AppDao appDao) {
         return runner -> {
             System.out.println("DB One to Many command line runner");
+            System.out.println("DB delete a course then delete all the reviews");
+
 //            saveInstructor(appDao);
 //            findInstructorById(appDao);
 //            findInstructorDetailsById(appDao);
@@ -35,11 +38,49 @@ public class SpringboardApplication {
 //            addCourseToExistingInstructor(appDao);
 //            deleteInstructorDetailsById(appDao);
 
+//            createCourseAndReviews(appDao);
+//            findCourseWithReviewsByCourseId(appDao);
+            deleteCourseAndReviewsByCourseId(appDao);
+
 
         };
     }
 
-    private void addCourseToExistingInstructor(AppDao appDao){
+    private void deleteCourseAndReviewsByCourseId(AppDao appDao) {
+        System.out.println("---------------------------------------------");
+        int id = 12;
+        System.out.println(" deleteCourseAndReviewsByCourseId by id... " + id);
+        appDao.deleteCourseAndReviews(id);
+        System.out.println("---------------------------------------------");
+    }
+
+    private void findCourseWithReviewsByCourseId(AppDao appDao) {
+        System.out.println("---------------------------------------------");
+        int id = 12;
+        System.out.println("Find findCourseWithReviewsByCourseId by id... " + id);
+        Course course = appDao.findCourseWithReviewsByCourseId(id);
+        System.out.println("Course is... " + course);
+        System.out.println("Course reviews are... " + course.getReviews());
+
+        System.out.println("---------------------------------------------");
+    }
+
+    private void createCourseAndReviews(AppDao appDao) {
+        System.out.println("---------------------------------------------");
+        System.out.println("Create createCourseAndReviews");
+        Course course = new Course("New course with reviews");
+        course.addReview(new Review("Review 1"));
+        course.addReview(new Review("Review 2"));
+        course.addReview(new Review("Review 3"));
+
+        appDao.saveCourseWithReview(course);
+
+
+        System.out.println("---------------------------------------------");
+
+    }
+
+    private void addCourseToExistingInstructor(AppDao appDao) {
         System.out.println("---------------------------------------------");
         int id = 2;
         System.out.println("Find addCourseToExistingInstructor by id... " + id);
@@ -60,7 +101,7 @@ public class SpringboardApplication {
         int id = 10;
         System.out.println("Find updateCourseById by id... " + id);
         Course course = appDao.findCourseById(id);
-        if(course == null){
+        if (course == null) {
             System.out.println("Course not present");
             return;
         }

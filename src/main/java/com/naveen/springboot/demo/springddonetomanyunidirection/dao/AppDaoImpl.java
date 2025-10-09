@@ -145,4 +145,33 @@ public class AppDaoImpl implements AppDao {
             mEntityManager.merge(instructor);
         }
     }
+
+    @Override
+    @Transactional
+    public void saveCourseWithReview(Course course) {
+        mEntityManager.persist(course);
+    }
+
+    @Override
+    public Course findCourseWithReviewsByCourseId(int id) {
+
+        TypedQuery<Course> query = mEntityManager.createQuery(
+                "select c from Course c "
+                        + "JOIN FETCH c.reviews "
+                        + "where c.id = :data", Course.class);
+
+        query.setParameter("data", id);
+
+        Course course = query.getSingleResult();
+        return course;
+    }
+
+    @Override
+    @Transactional
+    public void deleteCourseAndReviews(int id) {
+        Course course = mEntityManager.find(Course.class, id);
+        if (course != null) {
+            mEntityManager.remove(course);
+        }
+    }
 }
