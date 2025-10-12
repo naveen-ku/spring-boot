@@ -20,18 +20,36 @@ public class SpringboardApplication {
             System.out.println("DB Many to Many command line runner");
             System.out.println("DB delete a course then delete all the reviews");
 
-            createCourseAndStudents(appDao);
+//            createCourseAndStudents(appDao);
+//            findCourseAndStudentById(appDao);
 
+            findStudentAndCourseById(appDao);
 
         };
+    }
+
+    private void findStudentAndCourseById(AppDao appDao) {
+        int id = 2;
+        Student student = appDao.findStudentAndCourseByStudentId(id);
+        System.out.println("student: " + student);
+        System.out.println("Student courses: " + student.getCourses());
+
+    }
+
+    private void findCourseAndStudentById(AppDao appDao) {
+        int id = 10;
+        Course course = appDao.findCourseAndStudentByCourseId(id);
+        System.out.println("Course: " + course);
+        System.out.println("Course students: " + course.getStudents());
+
     }
 
     private void createCourseAndStudents(AppDao appDao) {
 
         Course course = new Course("New course 1");
 
-        Student student1 = new Student("Naveen", "Kumar","email@gmail.com");
-        Student student2 = new Student("Naveen - 2", "Kumar","email@gmail.com");
+        Student student1 = new Student("Naveen", "Kumar", "email@gmail.com");
+        Student student2 = new Student("Naveen - 2", "Kumar", "email@gmail.com");
 
         course.addStudent(student1);
         course.addStudent(student2);
