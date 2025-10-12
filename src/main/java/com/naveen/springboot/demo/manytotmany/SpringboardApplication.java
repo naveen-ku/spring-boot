@@ -22,10 +22,40 @@ public class SpringboardApplication {
 
 //            createCourseAndStudents(appDao);
 //            findCourseAndStudentById(appDao);
-
-            findStudentAndCourseById(appDao);
+//            findStudentAndCourseById(appDao);
+//            updateStudent(appDao);
+//            deleteCourse(appDao);
+            deleteStudent(appDao);
 
         };
+    }
+
+    private void deleteStudent(AppDao appDao){
+        int id = 2;
+        appDao.deleteStudentById(id);
+    }
+
+    private void deleteCourse(AppDao appDao){
+        int id = 10;
+        appDao.deleteCourseById(id);
+
+    }
+
+    private void updateStudent(AppDao appDao) {
+        int id = 2;
+        Student student = appDao.findStudentAndCourseByStudentId(id);
+
+        Course course1 = new Course("New course A");
+        Course course2 = new Course("New course B");
+        Course course3 = new Course("New course C");
+
+        student.addCourse(course1);
+        student.addCourse(course2);
+        student.addCourse(course3);
+
+        appDao.updateStudent(student);
+
+
     }
 
     private void findStudentAndCourseById(AppDao appDao) {

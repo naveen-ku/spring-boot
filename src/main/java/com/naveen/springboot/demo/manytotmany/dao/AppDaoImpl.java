@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Repository
 public class AppDaoImpl implements AppDao {
     private EntityManager mEntityManager;
@@ -49,5 +51,34 @@ public class AppDaoImpl implements AppDao {
         query.setParameter("data", id);
         Student student = query.getSingleResult();
         return student;
+    }
+
+    @Override
+    @Transactional
+    public void updateStudent(Student student) {
+        mEntityManager.merge(student);
+    }
+
+    @Override
+    @Transactional
+    public void deleteCourseById(int id) {
+        Course course = mEntityManager.find(Course.class, id);
+        if (course != null) {
+            mEntityManager.remove(course);
+        }
+
+    }
+
+    @Override
+    @Transactional
+    public void deleteStudentById(int id) {
+        Student student = mEntityManager.find(Student.class, id);
+        if (student != null) {
+            List<Course> courseList = student.getCourses();
+            for(Course course: courseList){
+                course.getStudents().remove(student);
+            }
+            mEntityManager.remove(student);
+        }
     }
 }
