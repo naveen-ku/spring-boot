@@ -1,6 +1,8 @@
 package com.naveen.springboot.demo.manytotmany;
 
 import com.naveen.springboot.demo.manytotmany.dao.AppDao;
+import com.naveen.springboot.demo.manytotmany.entity.Course;
+import com.naveen.springboot.demo.manytotmany.entity.Student;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,25 +20,22 @@ public class SpringboardApplication {
             System.out.println("DB Many to Many command line runner");
             System.out.println("DB delete a course then delete all the reviews");
 
-//            saveInstructor(appDao);
-//            findInstructorById(appDao);
-//            findInstructorDetailsById(appDao);
-//            createInstructorWithCourses(appDao);
-//            findInstructorWithCourses(appDao);
-//            findInstructorWithCoursesJoinFetch(appDao);
-//            updateInstructor(appDao);
-//            findCourseById(appDao);
-//            updateCourseById(appDao);
-//            deleteInstructorById(appDao);
-//            deleteCourseById(appDao);
-//            addCourseToExistingInstructor(appDao);
-//            deleteInstructorDetailsById(appDao);
-
-//            createCourseAndReviews(appDao);
-//            findCourseWithReviewsByCourseId(appDao);
-//            deleteCourseAndReviewsByCourseId(appDao);
+            createCourseAndStudents(appDao);
 
 
         };
+    }
+
+    private void createCourseAndStudents(AppDao appDao) {
+
+        Course course = new Course("New course 1");
+
+        Student student1 = new Student("Naveen", "Kumar","email@gmail.com");
+        Student student2 = new Student("Naveen - 2", "Kumar","email@gmail.com");
+
+        course.addStudent(student1);
+        course.addStudent(student2);
+
+        appDao.saveCourseWithStudent(course);
     }
 }
