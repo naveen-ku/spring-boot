@@ -1,5 +1,6 @@
 package com.naveen.springboot.demo.aop;
 
+import com.naveen.springboot.demo.aop.dao.AccountDao;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,9 +13,14 @@ public class SpringboardApplication {
     }
 
     @Bean
-    public CommandLineRunner commandLineRunner(String[] args) {
+    public CommandLineRunner commandLineRunner(AccountDao accountDao) {
         return runner -> {
             System.out.println("AOP Demo");
+            demoTheBeforeAdvice(accountDao);
         };
+    }
+
+    private void demoTheBeforeAdvice(AccountDao accountDao) {
+        accountDao.addAccount();
     }
 }
